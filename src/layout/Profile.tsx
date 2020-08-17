@@ -3,14 +3,10 @@ import axios from "axios";
 import Gallery from "./Gallery";
 import ToDo from "./ToDo";
 import { Avatar } from "react-chat-elements";
-import { Switch, Route } from "react-router-dom";
 import Posts from "./Posts";
-import { history } from "../index";
-import { Collapse, Button } from "antd";
-import map from "../assets/map1.jpeg";
 import useModal from "../components/useModal";
 import Modal from "../components/Modal";
-const { Panel } = Collapse;
+import { Button } from "antd";
 
 interface UserState {
   id: number;
@@ -49,22 +45,23 @@ const Profile = (props: any) => {
       const list = users["users"];
       var id = props.match.params.id;
       setUsers(list);
+      // eslint-disable-next-line array-callback-return
       list.map((u: UserState) => {
+        // eslint-disable-next-line
         if (id && u && id == u.id) {
           setUserList(u);
           sidebarClick("Profile");
         }
       });
     });
+    // eslint-disable-next-line
   }, []);
 
   const sidebarClick = (str?: string) => {
+    // eslint-disable-next-line
     if (str != "" && str != undefined) {
       setHeaderName(str);
     }
-    // if (str == "Posts") {
-    //   history.push("/Posts");
-    // }
   };
   return (
     /* Main div */
@@ -72,24 +69,28 @@ const Profile = (props: any) => {
       <div className="sidebar">
         <ul>
           <li>
+            {/* eslint-disable-next-line */}
             <a onClick={() => sidebarClick("Profile")} href="#">
               Profile
             </a>
           </li>
           <hr />
           <li>
+            {/* eslint-disable-next-line */}
             <a onClick={() => sidebarClick("Posts")} href="#">
               Posts
             </a>
           </li>
           <hr />
           <li>
+            {/* eslint-disable-next-line */}
             <a onClick={() => sidebarClick("Gallery")} href="#">
               Gallery
             </a>
           </li>
           <hr />
           <li>
+            {/* eslint-disable-next-line */}
             <a onClick={() => sidebarClick("ToDo")} href="#">
               ToDo
             </a>
@@ -98,6 +99,7 @@ const Profile = (props: any) => {
       </div>
       <div className="contentHeader">
         <p className="headerLeft">
+          {/* eslint-disable-next-line */}
           {headerName != "" && headerName != undefined && headerName}
         </p>
         <div className="headerRight">
@@ -114,74 +116,85 @@ const Profile = (props: any) => {
         <hr className="hrLine" />
       </div>
       <div className="content">
+        {/* eslint-disable-next-line */}
         {headerName == "Posts" ? <Posts /> : ""}
+        {/* eslint-disable-next-line */}
         {headerName == "Gallery" ? <Gallery /> : ""}
+        {/* eslint-disable-next-line */}
         {headerName == "ToDo" ? <ToDo /> : ""}
+        {/* eslint-disable-next-line */}
         {headerName == "Profile" ? (
           <div>
             <div className="leftDiv">
               {/* left Side Split */}
               <div className="fullSizeAvatar">
-                <img className="avatar" src={userList?.profilepicture} />
+                <img
+                  alt="logo"
+                  className="avatar"
+                  src={userList?.profilepicture}
+                />
               </div>
               <table className="tableContainer">
-                <tr>
-                  <td
-                    className="userFullName"
-                    style={{ paddingLeft: "75px" }}
-                    colSpan={3}
-                  >
-                    {userList?.name}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">Username</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.username}</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">e-mail</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.email}</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">Phone</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.phone}</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">Website</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.website}</td>
-                </tr>
-                <tr>
-                  <td colSpan={3}>
-                    <hr className="hrLine" />
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    style={{ paddingLeft: "85px", paddingBottom: "0px" }}
-                    colSpan={3}
-                  >
-                    Company
-                  </td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">Name</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.company.name}</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">catchphrase</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.company.catchPhrase}</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">bs</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.company.bs}</td>
-                </tr>
+                <thead></thead>
+                <tbody>
+                  <tr>
+                    <td
+                      className="userFullName"
+                      style={{ paddingLeft: "75px" }}
+                      colSpan={3}
+                    >
+                      {userList?.name}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">Username</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.username}</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">e-mail</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.email}</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">Phone</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.phone}</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">Website</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.website}</td>
+                  </tr>
+                  <tr>
+                    <td colSpan={3}>
+                      <hr className="hrLine" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style={{ paddingLeft: "85px", paddingBottom: "0px" }}
+                      colSpan={3}
+                    >
+                      Company
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">Name</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.company.name}</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">catchphrase</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.company.catchPhrase}</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">bs</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.company.bs}</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
             <div className="rightDiv">
@@ -212,56 +225,60 @@ const Profile = (props: any) => {
               </div>
               {/* right Side Split */}
               <table>
-                <tr>
-                  <td colSpan={3}>Address</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">Street</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.address.street}</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">Suite</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.address.suite}</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">City</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.address.city}</td>
-                </tr>
-                <tr>
-                  <td className="userTitleLeft">Zipcode</td>
-                  <td className="userTitleLeft">:</td>
-                  <td>{userList?.address.zipcode}</td>
-                </tr>
-                <tr>
-                  <td colSpan={3}>
-                    <img src={require("../assets/map.PNG")} alt="no image" />
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    colSpan={3}
-                    style={{ textAlign: "right", fontSize: "10px" }}
-                  >
-                    <span
-                      className="userTitleLeft"
-                      style={{ fontSize: "10px" }}
+                <thead></thead>
+                <tbody>
+                  <tr>
+                    <td colSpan={3}>Address</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">Street</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.address.street}</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">Suite</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.address.suite}</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">City</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.address.city}</td>
+                  </tr>
+                  <tr>
+                    <td className="userTitleLeft">Zipcode</td>
+                    <td className="userTitleLeft">:</td>
+                    <td>{userList?.address.zipcode}</td>
+                  </tr>
+                  <tr>
+                    <td colSpan={3}>
+                      {/* eslint-disable-next-line */}
+                      <img src={require("../assets/map.PNG")} alt="no image" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      colSpan={3}
+                      style={{ textAlign: "right", fontSize: "10px" }}
                     >
-                      Lat :
-                    </span>
-                    {userList?.address.geo.lat}
-                    <span
-                      className="userTitleLeft"
-                      style={{ fontSize: "10px", paddingLeft: "10px" }}
-                    >
-                      {" "}
-                      Long :
-                    </span>
-                    {userList?.address.geo.lng}{" "}
-                  </td>
-                </tr>
+                      <span
+                        className="userTitleLeft"
+                        style={{ fontSize: "10px" }}
+                      >
+                        Lat :
+                      </span>
+                      {userList?.address.geo.lat}
+                      <span
+                        className="userTitleLeft"
+                        style={{ fontSize: "10px", paddingLeft: "10px" }}
+                      >
+                        {" "}
+                        Long :
+                      </span>
+                      {userList?.address.geo.lng}{" "}
+                    </td>
+                  </tr>
+                </tbody>
               </table>
               <Modal
                 users={users}

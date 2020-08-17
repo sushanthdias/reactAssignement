@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ChatItem, Avatar } from "react-chat-elements";
+import { ChatItem } from "react-chat-elements";
 import axios from "axios";
-import { Link, Route } from "react-router-dom";
 import { history } from "..";
 
 interface UserState {
@@ -50,6 +49,7 @@ const HomePage: React.FC<UserState> = () => {
     return (
       users != null &&
       users.length > 0 &&
+      // eslint-disable-next-line array-callback-return
       users.map((u: UserState) => (
         <div>
           <ChatItem

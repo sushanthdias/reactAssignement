@@ -32,30 +32,52 @@ const Modal = ({ isShowing, hide, users, user }) =>
                 </button>
               </div>
               <div className="modal-body">
-                <img className="avatarImg" src={user?.profilepicture}></img>
+                <img
+                  alt="logo"
+                  className="avatarImg"
+                  src={user?.profilepicture}
+                ></img>
                 <h5 className="dispalyModalName">{user?.name}</h5>
                 <h6 className="dispalyModalEmail">{user?.email}</h6>
                 <hr className="newHr" />
                 <div style={{ maxHeight: "70px", overflowY: "auto" }}>
-                  <img className="smallimg" src={users[0]?.profilepicture} />{" "}
+                  <img
+                    alt="logo"
+                    className="smallimg"
+                    src={users[0]?.profilepicture}
+                  />{" "}
                   <h3>{users[0]?.name}</h3>
                   <hr className="newHr" />
-                  <img className="smallimg" src={users[1]?.profilepicture} />
+                  <img
+                    alt="logo"
+                    className="smallimg"
+                    src={users[1]?.profilepicture}
+                  />
                   <h3>{users[1]?.name}</h3>
                   <hr className="newHr" />
-                  <img className="smallimg" src={users[2]?.profilepicture} />
+                  <img
+                    alt="logo"
+                    className="smallimg"
+                    src={users[2]?.profilepicture}
+                  />
                   <h3>{users[2]?.name}</h3>
                   <hr className="newHr" />
                   <img
+                    alt="logo"
                     className="smallimg"
                     src={users[3]?.profilepicture}
                   />{" "}
                   <h3>{users[3]?.name}</h3>
                   <hr className="newHr" />
-                  <img className="smallimg" src={users[4]?.profilepicture} />
+                  <img
+                    alt="logo"
+                    className="smallimg"
+                    src={users[4]?.profilepicture}
+                  />
                   <h3>{users[4]?.name}</h3>
                   <hr className="newHr" />
                   <img
+                    alt="logo"
                     className="smallimg"
                     src={users[5]?.profilepicture}
                   />{" "}
