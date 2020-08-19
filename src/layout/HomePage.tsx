@@ -24,7 +24,7 @@ interface UserState {
     bs: string;
   };
 }
-const HomePage: React.FC<UserState> = () => {
+const HomePage = () => {
   const [userList, setUserList] = useState([]);
 
   useEffect(() => {
@@ -36,7 +36,6 @@ const HomePage: React.FC<UserState> = () => {
 
   const userClick = (u: any) => {
     if (u != null) {
-      console.log(u);
       history.push(`/profile/${u.id}`);
     }
   };

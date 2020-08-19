@@ -7,8 +7,13 @@ const logoutClick = () => {
   history.push("/");
 };
 
-const Modal = ({ isShowing, hide, users, user }) =>
-  isShowing
+const Modal = ({ isShowing, hide, users, user }) => {
+  var AllUsers = [];
+  /* eslint-disable-next-line */
+  if (users != []) {
+    AllUsers = users["users"];
+  }
+  return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
           <div className="modal-overlay" />
@@ -41,48 +46,18 @@ const Modal = ({ isShowing, hide, users, user }) =>
                 <h6 className="dispalyModalEmail">{user?.email}</h6>
                 <hr className="newHr" />
                 <div style={{ maxHeight: "70px", overflowY: "auto" }}>
-                  <img
-                    alt="logo"
-                    className="smallimg"
-                    src={users[0]?.profilepicture}
-                  />{" "}
-                  <h3>{users[0]?.name}</h3>
-                  <hr className="newHr" />
-                  <img
-                    alt="logo"
-                    className="smallimg"
-                    src={users[1]?.profilepicture}
-                  />
-                  <h3>{users[1]?.name}</h3>
-                  <hr className="newHr" />
-                  <img
-                    alt="logo"
-                    className="smallimg"
-                    src={users[2]?.profilepicture}
-                  />
-                  <h3>{users[2]?.name}</h3>
-                  <hr className="newHr" />
-                  <img
-                    alt="logo"
-                    className="smallimg"
-                    src={users[3]?.profilepicture}
-                  />{" "}
-                  <h3>{users[3]?.name}</h3>
-                  <hr className="newHr" />
-                  <img
-                    alt="logo"
-                    className="smallimg"
-                    src={users[4]?.profilepicture}
-                  />
-                  <h3>{users[4]?.name}</h3>
-                  <hr className="newHr" />
-                  <img
-                    alt="logo"
-                    className="smallimg"
-                    src={users[5]?.profilepicture}
-                  />{" "}
-                  <h3>{users[5]?.name}</h3>
-                  <hr className="newHr" />
+                  {AllUsers &&
+                    AllUsers.map((u) => (
+                      <div>
+                        <img
+                          alt="logo"
+                          className="smallimg"
+                          src={u?.profilepicture}
+                        />
+                        <h3>{u?.name}</h3>
+                        <hr className="newHr" />
+                      </div>
+                    ))}
                 </div>
                 <Button onClick={logoutClick} className="outButton">
                   SignOut
@@ -94,4 +69,5 @@ const Modal = ({ isShowing, hide, users, user }) =>
         document.body
       )
     : null;
+};
 export default Modal;

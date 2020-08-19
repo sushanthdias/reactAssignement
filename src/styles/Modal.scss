@@ -70,6 +70,7 @@ button {
 }
 .dispalyModalName {
   margin-top: 70px;
+  margin-bottom: 2px;
   font-size: 24px;
   color: #4a4a4a;
   text-align: center;
@@ -85,12 +86,13 @@ button {
   margin-top: 20px;
   margin-left: 100px;
   border-radius: 13px;
-  background-color: #ff4141;
+  background-color: #d55151;
 }
 .newHr {
   margin-left: 10px;
   margin-right: 20px;
-  color: #cccccc;
+  background-color: #bdc5d4;
+  opacity: 0.3;
 }
 h3 {
   display: inline;
