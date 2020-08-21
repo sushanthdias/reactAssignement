@@ -251,7 +251,7 @@ const Profile = (props: any) => {
               </table>
             </div>
             <div className="rightDiv">
-              <div>
+              <div className="UserChatMainDiv">
                 {!open ? (
                   <div onClick={() => setOpen(true)} className="reactChatbox">
                     <i className="fa fa-comment"></i>
@@ -273,13 +273,16 @@ const Profile = (props: any) => {
                     <div className="chatContainer chatScroll">
                       {AllUsers &&
                         AllUsers.map((u: UserState) => (
-                          <ChatItem
-                            avatar={u.profilepicture}
-                            alt={null}
-                            title={u.name}
-                            subtitle={null}
-                            onClick={() => userClick(u)}
-                          />
+                          <div>
+                            <ChatItem
+                              avatar={u.profilepicture}
+                              alt={null}
+                              title={u.name}
+                              subtitle={null}
+                              onClick={() => userClick(u)}
+                            />
+                            <span className="userStatus"></span>
+                          </div>
                         ))}
                     </div>
                   </div>

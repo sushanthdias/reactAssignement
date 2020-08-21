@@ -8,7 +8,7 @@
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 5px;
-  width: 338px;
+  width: 250px;
   height: 100vh;
   background: transparent linear-gradient(195deg, #2c65c8 0%, #702cc8 100%) 0%
     0% no-repeat padding-box;
@@ -43,7 +43,7 @@ a {
   margin-top: 100px;
   margin-right: 5px;
   margin-bottom: 5px;
-  margin-left: 350px;
+  margin-left: 300px;
   background-color: white;
   height: 100vh;
   width: 100%;
@@ -140,22 +140,29 @@ td {
   float: left;
 }
 
+.UserChatMainDiv {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
 .reactChatbox {
+  position: fixed;
+  right: 1.5%;
+  bottom: 0;
   width: 230px;
   height: 35px;
-  position: fixed;
   background-color: #2c65c8;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
-  right: 12px;
-  bottom: 0;
   padding: 12px;
   color: white;
   z-index: 9999;
 }
 .reactChatboxOpen {
   width: 230px;
-  height: 35px;
+  height: 5%;
   position: fixed;
   background-color: #2c65c8;
   border-top-right-radius: 8px;
@@ -169,7 +176,7 @@ td {
 
 .chatContainer {
   border: 1px solid #2c65c8;
-  height: 362px;
+  height: auto;
   width: 230px;
   position: fixed;
   right: 12px;
@@ -201,7 +208,7 @@ td {
   width: 50px;
   position: absolute;
   margin-top: 68%;
-  margin-left: 302px;
+  margin-left: 212px;
   height: 50px;
   overflow: hidden;
 }
@@ -209,31 +216,31 @@ td {
   width: 50px;
   position: absolute;
   margin-top: 68%;
-  margin-left: 302px;
+  margin-left: 212px;
   height: 50px;
   overflow: hidden;
 }
 .iconContainerPosts {
   width: 50px;
   position: absolute;
-  margin-top: 85%;
-  margin-left: 302px;
+  margin-top: 91%;
+  margin-left: 212px;
   height: 50px;
   overflow: hidden;
 }
 .iconContainerGallery {
   width: 50px;
   position: absolute;
-  margin-top: 105%;
-  margin-left: 302px;
+  margin-top: 117%;
+  margin-left: 212px;
   height: 50px;
   overflow: hidden;
 }
 .iconContainerToDo {
   width: 50px;
   position: absolute;
-  margin-top: 120%;
-  margin-left: 302px;
+  margin-top: 140%;
+  margin-left: 212px;
   height: 50px;
   overflow: hidden;
 }
@@ -265,4 +272,9 @@ td {
   background-color: #d8d8d8;
   border-radius: 10px;
   // -webkit-box-shadow: inset 0 0 6px #d8d8d8;
+}
+.userStatus {
+  width: 10px;
+  height: 10px;
+  color: green;
 }
