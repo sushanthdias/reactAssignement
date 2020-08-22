@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Gallery from "./Gallery";
 import ToDo from "./ToDo";
-import { Avatar, ChatItem } from "react-chat-elements";
+import { Avatar } from "react-chat-elements";
 import Posts from "./Posts";
 import Modal from "../components/Modal";
 import { Button } from "antd";
@@ -299,7 +299,7 @@ const Profile = (props: any) => {
                                         >
                                           <span>
                                             <img
-                                              alt="logo"
+                                              alt=""
                                               className="userImg"
                                               src={u?.profilepicture}
                                             />
@@ -310,7 +310,7 @@ const Profile = (props: any) => {
                                           <img
                                             className="userCircle"
                                             src={require("../assets/circle.png")}
-                                            alt="no image"
+                                            alt=""
                                           />
                                         </div>
                                       ))}
