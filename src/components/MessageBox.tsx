@@ -28,7 +28,7 @@ const MessageBox = (props) => {
       ) : null}
       {/* eslint-disable-next-line */}
       {showChat && collapse == false ? (
-        <div className="MessageContainer">
+        <div className="MessageWrapper">
           <div className="MessageBoxOpen">
             <span>
               <img className="profileImage" src={user?.profilepicture} alt="" />
@@ -85,6 +85,10 @@ const MessageBox = (props) => {
                 },
               ]}
             />
+            <div>
+              <hr className="chathr" />
+              <i className="fa fa-angle-right messageAngle"></i>
+            </div>
           </div>
         </div>
       ) : null}

@@ -4,7 +4,6 @@ import Gallery from "./Gallery";
 import ToDo from "./ToDo";
 import { Avatar, ChatItem } from "react-chat-elements";
 import Posts from "./Posts";
-import useModal from "../components/useModal";
 import Modal from "../components/Modal";
 import { Button } from "antd";
 import MessageBox from "../components/MessageBox";
@@ -38,7 +37,7 @@ const Profile = (props: any) => {
   const [users, setUsers] = useState([]);
   const [headerName, setHeaderName] = useState("");
   const [iconClass, setIconClass] = useState("iconContainer");
-  const { isShowing, toggle } = useModal();
+  const [isShowing, setIsShowing] = useState(false);
   const [open, setOpen] = useState(false);
   const [showSingleChat, setShowSingleChat] = useState(false);
   const [chatSelectedUser, setChatSelectedUser] = useState<UserState | null>(
@@ -62,6 +61,10 @@ const Profile = (props: any) => {
     });
     // eslint-disable-next-line
   }, []);
+
+  const toggle = () => {
+    setIsShowing(!isShowing);
+  };
 
   const userClick = (u: UserState) => {
     setShowSingleChat(true);
@@ -162,13 +165,13 @@ const Profile = (props: any) => {
             size="small"
             type="circle"
           />
-          <Button onClick={toggle} className="userName">
+          <Button onClick={() => toggle()} className="userName">
             {userList?.name}
           </Button>
         </div>
         <hr className="hrLine" />
       </div>
-      <div className="content">
+      <div onClick={() => setIsShowing(false)} className="content">
         {/* eslint-disable-next-line */}
         {headerName == "Posts" ? <Posts /> : ""}
         {/* eslint-disable-next-line */}
@@ -251,43 +254,78 @@ const Profile = (props: any) => {
               </table>
             </div>
             <div className="rightDiv">
-              <div className="UserChatMainDiv">
-                {!open ? (
-                  <div onClick={() => setOpen(true)} className="reactChatbox">
-                    <i className="fa fa-comment"></i>
-                    <span> Chats</span>
-                    <i className="fa fa-angle-up"></i>
-                  </div>
-                ) : null}
+              <table>
+                <thead></thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {!open ? (
+                        <div
+                          onClick={() => setOpen(true)}
+                          className="reactChatbox"
+                        >
+                          <i className="fa fa-comment"></i>
+                          <span> Chats</span>
+                          <i className="fa fa-angle-up"></i>
+                        </div>
+                      ) : null}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {open ? (
+                        <div>
+                          <table>
+                            <thead></thead>
+                            <tbody>
+                              <tr className="ChatWrapper">
+                                <td className="c1">
+                                  <div
+                                    onClick={() => setOpen(false)}
+                                    className="reactChatboxOpen"
+                                  >
+                                    <i className="fa fa-comment"></i>
+                                    <span> Chats</span>
+                                    <i className="fa fa-angle-down"></i>
+                                  </div>
+                                </td>
+                                <td className="c2">
+                                  <div className="chatContainer chatScroll">
+                                    {AllUsers &&
+                                      AllUsers.map((u: UserState) => (
+                                        <div
+                                          onClick={() => userClick(u)}
+                                          className="listWrapper"
+                                        >
+                                          <span>
+                                            <img
+                                              alt="logo"
+                                              className="userImg"
+                                              src={u?.profilepicture}
+                                            />
+                                          </span>
+                                          <span className="userText">
+                                            {u?.name}
+                                          </span>
+                                          <img
+                                            className="userCircle"
+                                            src={require("../assets/circle.png")}
+                                            alt="no image"
+                                          />
+                                        </div>
+                                      ))}
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : null}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
-                {open ? (
-                  <div className="chatOpenContainer">
-                    <div
-                      onClick={() => setOpen(false)}
-                      className="reactChatboxOpen"
-                    >
-                      <i className="fa fa-comment"></i>
-                      <span> Chats</span>
-                      <i className="fa fa-angle-down"></i>
-                    </div>
-                    <div className="chatContainer chatScroll">
-                      {AllUsers &&
-                        AllUsers.map((u: UserState) => (
-                          <div>
-                            <ChatItem
-                              avatar={u.profilepicture}
-                              alt={null}
-                              title={u.name}
-                              subtitle={null}
-                              onClick={() => userClick(u)}
-                            />
-                            <span className="userStatus"></span>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                ) : null}
-              </div>
               {/* right Side Split */}
               <table>
                 <thead></thead>

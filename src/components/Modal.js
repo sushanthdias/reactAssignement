@@ -24,18 +24,7 @@ const Modal = ({ isShowing, hide, users, user }) => {
             tabIndex={-1}
             role="dialog"
           >
-            <div className="modal">
-              <div className="modal-header">
-                <button
-                  type="button"
-                  className="modal-close-button"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                  onClick={hide}
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+            <div onClick={hide} className="modal">
               <div className="modal-body">
                 <img
                   alt="logo"
@@ -44,8 +33,8 @@ const Modal = ({ isShowing, hide, users, user }) => {
                 ></img>
                 <h5 className="dispalyModalName">{user?.name}</h5>
                 <h6 className="dispalyModalEmail">{user?.email}</h6>
-                <hr className="newHr" />
-                <div style={{ maxHeight: "70px", overflowY: "auto" }}>
+                <hr className="tophr" />
+                <div className="list">
                   {AllUsers &&
                     AllUsers.map((u) => (
                       <div>
@@ -60,7 +49,7 @@ const Modal = ({ isShowing, hide, users, user }) => {
                     ))}
                 </div>
                 <Button onClick={logoutClick} className="outButton">
-                  SignOut
+                  <span className="singoutText"> SignOut</span>
                 </Button>
               </div>
             </div>

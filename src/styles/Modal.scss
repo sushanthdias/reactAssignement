@@ -1,14 +1,16 @@
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1040;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  opacity: 0.5;
+// .modal-overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 1040;
+//   width: 100vw;
+//   height: 100vh;
+//   background-color: #000;
+//   opacity: 0.5;
+// }
+.modal-body {
+  overflow-y: hidden;
 }
-
 .modal-wrapper {
   position: fixed;
   top: 0;
@@ -17,37 +19,22 @@
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   outline: 0;
 }
 
 .modal {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 80px #00000029;
+  border-radius: 18px;
+  opacity: 1;
   z-index: 100;
-  background: white;
   position: relative;
   margin: 2.75rem auto;
-  margin-right: 100px;
-  border-radius: 34px;
-  max-width: 280px;
+  margin-right: 3%;
+  margin-top: 4%;
+  max-width: 240px;
   height: 324px;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.modal-close-button {
-  margin-top: 2px;
-  margin-right: 3px;
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  opacity: 0.3;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
 }
 
 button {
@@ -60,8 +47,9 @@ button {
 }
 
 .avatarImg {
-  height: 70px;
-  width: 70px;
+  background: transparent;
+  height: 25%;
+  width: 28%;
   position: absolute;
   left: 50%;
   top: 20%;
@@ -69,28 +57,52 @@ button {
   border-radius: 50%;
 }
 .dispalyModalName {
-  margin-top: 70px;
-  margin-bottom: 2px;
-  font-size: 24px;
-  color: #4a4a4a;
   text-align: center;
+  margin-top: 45%;
+  margin-bottom: 0px;
+  font-size: 18px;
+  color: #4a4a4a;
   letter-spacing: 0px;
 }
 .dispalyModalEmail {
-  font-size: 20px;
+  text-align: center;
+  margin-top: 0px;
+  font-size: 15px;
   color: #9a9a9a;
   text-align: center;
   letter-spacing: 0px;
 }
+.list {
+  position: absolute;
+  top: 55%;
+  left: 6%;
+  max-height: 70px;
+  overflow-y: auto;
+}
+.list::-webkit-scrollbar {
+  display: none;
+}
+
 .outButton {
-  margin-top: 20px;
-  margin-left: 100px;
+  position: absolute;
+  top: 85%;
+  left: 30%;
   border-radius: 13px;
   background-color: #d55151;
 }
+.outbutton :hover {
+  background-color: #d55151;
+  color: black;
+}
+.tophr {
+  margin-left: 10%;
+  margin-right: 8%;
+  background-color: #bdc5d4;
+  opacity: 0.3;
+}
 .newHr {
-  margin-left: 10px;
-  margin-right: 20px;
+  margin-left: 5%;
+  margin-right: 8%;
   background-color: #bdc5d4;
   opacity: 0.3;
 }
@@ -98,6 +110,9 @@ h3 {
   display: inline;
   padding-left: 10px;
   padding-top: 8px;
+}
+.singoutText {
+  color: white;
 }
 .smallimg {
   margin-left: 10px;
